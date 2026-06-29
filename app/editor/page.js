@@ -1,6 +1,6 @@
-import Tabs from '@/components/Tabs';
 import dynamic from 'next/dynamic';
 
+const Tabs = dynamic(() => import('@/components/Tabs'), { ssr: false })
 const Editor = dynamic(() => import('@/components/Editor'), { ssr: false });
 const Preview = dynamic(() => import('@/components/Resume/Preview'), { ssr: false });
 

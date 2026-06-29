@@ -9,6 +9,7 @@ const defaultResume = {
     skills: {},
     certificates: [],
     languages: [],
+    language: 'en',
 
     saved: false,
 };
@@ -57,8 +58,12 @@ const resumeSlice = createSlice({
         saveResume: state => {
             state.saved = true;
         },
+
+        setLanguage: (state, action) => {
+            state.language = action.payload;
+        },
     },
 });
 
-export const { updateResumeValue, addNewIndex, deleteIndex, saveResume, moveIndex } = resumeSlice.actions;
+export const { updateResumeValue, addNewIndex, deleteIndex, saveResume, moveIndex, setLanguage } = resumeSlice.actions;
 export default resumeSlice.reducer;

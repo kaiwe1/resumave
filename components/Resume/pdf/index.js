@@ -63,8 +63,8 @@ const Header = ({ data }) => {
     );
 };
 
-const Education = ({ data }) => (
-    <Section title={'Education'}>
+const Education = ({ data, labels }) => (
+    <Section title={labels.education}>
         {data.map(({ degree, institution, start, end, location, gpa }, i) => (
             <View key={i} style={styles?.wrappper}>
                 <View style={styles.title_wrapper}>
@@ -89,8 +89,8 @@ const Education = ({ data }) => (
     </Section>
 );
 
-const Projects = ({ data }) => (
-    <Section title={'Projects'}>
+const Projects = ({ data, labels }) => (
+    <Section title={labels.projects}>
         {data.map((project, i) => (
             <View key={i}>
                 <View style={styles.title_wrapper}>
@@ -127,8 +127,8 @@ const Projects = ({ data }) => (
     </Section>
 );
 
-const Experience = ({ data }) => (
-    <Section title={'Experience'}>
+const Experience = ({ data, labels }) => (
+    <Section title={labels.experience}>
         {data.map(({ role, start, end, company, location, description }, i) => (
             <View key={i} style={styles?.wrappper}>
                 <View style={styles.title_wrapper}>
@@ -154,8 +154,8 @@ const Experience = ({ data }) => (
     </Section>
 );
 
-const Skills = ({ data }) => (
-    <Section title={'skills'}>
+const Skills = ({ data, labels }) => (
+    <Section title={labels.skills}>
         {data?.split('\n').map((line, i) => (
             <Text key={i} style={{ fontSize: 11 }}>
                 {line}
@@ -164,8 +164,8 @@ const Skills = ({ data }) => (
     </Section>
 );
 
-const Certificaes = ({ data }) => (
-    <Section title={'Certifications'}>
+const Certificaes = ({ data, labels }) => (
+    <Section title={labels.certifications}>
         {data.map(({ title, issuer, date }, i) => (
             <View key={i} style={styles?.wrappper}>
                 <View style={styles.title_wrapper}>
@@ -183,8 +183,8 @@ const Certificaes = ({ data }) => (
     </Section>
 );
 
-const Languages = ({ data }) => (
-    <Section title={'Languages'}>
+const Languages = ({ data, labels }) => (
+    <Section title={labels.languages}>
         <View
             style={{
                 display: 'flex',
@@ -202,7 +202,7 @@ const Languages = ({ data }) => (
     </Section>
 );
 
-const Resume = ({ data }) => {
+const Resume = ({ data, labels }) => {
     const { contact, education, experience, projects, summary, skills, certificates, languages } = data;
 
     return (
@@ -211,18 +211,18 @@ const Resume = ({ data }) => {
                 <Header data={contact} />
 
                 {summary?.summary && (
-                    <Section title={'Summary'}>
+                    <Section title={labels.summary}>
                         <Text style={{ fontSize: 10 }}>{summary?.summary}</Text>
                     </Section>
                 )}
 
-                {education.length > 0 && <Education data={education} />}
-                {experience.length > 0 && <Experience data={experience} />}
-                {projects.length > 0 && <Projects data={projects} />}
+                {education.length > 0 && <Education data={education} labels={labels} />}
+                {experience.length > 0 && <Experience data={experience} labels={labels} />}
+                {projects.length > 0 && <Projects data={projects} labels={labels} />}
 
-                {skills?.skills?.length > 0 && <Skills data={skills.skills} />}
-                {certificates?.length > 0 && <Certificaes data={certificates} />}
-                {languages?.length > 0 && <Languages data={languages} />}
+                {skills?.skills?.length > 0 && <Skills data={skills.skills} labels={labels} />}
+                {certificates?.length > 0 && <Certificaes data={certificates} labels={labels} />}
+                {languages?.length > 0 && <Languages data={languages} labels={labels} />}
             </Page>
         </Document>
     );

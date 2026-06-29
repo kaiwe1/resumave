@@ -11,6 +11,7 @@ import { CgSpinner } from 'react-icons/cg';
 import { usePDF } from '@react-pdf/renderer';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { FaDownload, FaEye } from 'react-icons/fa6';
+import locales from '@/config/locales';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.js', import.meta.url).toString();
 
@@ -31,7 +32,8 @@ const preview = url => {
 const Preview = () => {
     const parentRef = useRef(null);
     const resumeData = useSelector(state => state.resume);
-    const document = <Resume data={resumeData} />;
+    const labels = locales[resumeData.language || 'en'];
+    const document = <Resume data={resumeData} labels={labels} />;
     const [instance, updateInstance] = usePDF({ document });
 
     useEffect(() => {
