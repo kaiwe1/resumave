@@ -1,10 +1,15 @@
 'use client';
 
-import { Page, Text, View, Document, Link } from '@react-pdf/renderer';
+import { Page, Text, View, Document, Link, Font } from '@react-pdf/renderer';
 import Section from './Section';
 import ListItem from './ListItem';
 import styles from '../Styles';
 import formatDate from '@/utils/formatDate';
+
+Font.register({
+    family: 'Noto Sans SC',
+    src: '/fonts/NotoSansSC-Variable.ttf',
+});
 
 const Header = ({ data }) => {
     const contactLinks = [

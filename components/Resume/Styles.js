@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         color: '#555',
         padding: 30,
-        fontFamily: 'Times-Roman',
+        fontFamily: 'Noto Sans SC',
     },
 
     header: {
@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
     header__name: {
         color: '#111',
         fontSize: 20,
-        fontFamily: 'Times-Bold',
+        fontFamily: 'Noto Sans SC',
+        fontWeight: 'bold',
         textAlign: 'center',
     },
     header__links: {
@@ -46,12 +47,14 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontFamily: 'Times-Bold',
+        fontFamily: 'Noto Sans SC',
+        fontWeight: 'bold',
         marginRight: 'auto',
         color: '#555',
     },
     date: {
-        fontFamily: 'Times-Italic',
+        fontFamily: 'Noto Sans SC',
+        fontStyle: 'italic',
         fontSize: 10,
     },
 
