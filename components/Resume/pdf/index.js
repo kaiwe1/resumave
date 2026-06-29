@@ -8,7 +8,11 @@ import formatDate from '@/utils/formatDate';
 
 Font.register({
     family: 'Noto Sans SC',
-    src: '/fonts/NotoSansSC-Variable.ttf',
+    fonts: [
+        { src: '/fonts/NotoSansSC-Variable.ttf', fontWeight: 400, fontStyle: 'normal' },
+        { src: '/fonts/NotoSansSC-Variable.ttf', fontWeight: 700, fontStyle: 'normal' },
+        { src: '/fonts/NotoSansSC-Variable.ttf', fontWeight: 400, fontStyle: 'italic' },
+    ],
 });
 
 const Header = ({ data }) => {

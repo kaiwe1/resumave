@@ -1,6 +1,8 @@
-import Editor from '@/components/Editor';
-import Preview from '@/components/Resume/Preview';
 import Tabs from '@/components/Tabs';
+import dynamic from 'next/dynamic';
+
+const Editor = dynamic(() => import('@/components/Editor'), { ssr: false });
+const Preview = dynamic(() => import('@/components/Resume/Preview'), { ssr: false });
 
 const page = ({ searchParams: { tab = 'contact' } }) => {
     return (

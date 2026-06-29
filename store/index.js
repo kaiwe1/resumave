@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import resumeSlice from './slices/resumeSlice';
 
 const loadState = () => {
+    if (typeof window === 'undefined') return undefined;
+
     console.info('Loading State from Local Storage...');
 
     try {

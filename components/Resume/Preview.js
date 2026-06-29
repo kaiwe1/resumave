@@ -38,9 +38,18 @@ const Preview = () => {
         if (resumeData.saved) updateInstance(document);
     }, [resumeData.saved]);
 
+    if (instance.error) {
+        return (
+            <div className="rounded-lg border border-red-500/50 bg-red-500/10 p-6 text-center">
+                <p className="text-red-400">PDF generation failed</p>
+                <p className="mt-2 text-xs text-gray-400">{instance.error.message}</p>
+            </div>
+        );
+    }
+
     return (
         <div ref={parentRef} className="relative w-full md:max-w-[24rem] 2xl:max-w-[28rem]">
-            {instance.loading ?
+            {instance.loading || !instance.url ?
                 <Loader />
             :   <Document loading={<Loader />} file={instance.url}>
                     <Page
@@ -53,7 +62,7 @@ const Preview = () => {
                 </Document>
             }
 
-            {!instance.loading && (
+            {!instance.loading && instance.url && (
                 <div className="mt-4 flex justify-around">
                     <button onClick={() => preview(instance.url)} className="btn text-sm">
                         <span>Preview</span>
