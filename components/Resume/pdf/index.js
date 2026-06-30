@@ -14,8 +14,10 @@ Font.register({
         { src: '/fonts/NotoSansSC-Variable.ttf', fontWeight: 700, fontStyle: 'normal' },
         { src: '/fonts/NotoSansSC-Variable.ttf', fontWeight: 400, fontStyle: 'italic' },
     ],
+    hyphenationCallback: word => [word],
 });
 
+// 头部
 const Header = ({ data }) => {
     const contactLinks = [
         { name: data['phone'], value: data['phone'], icon: 'phone' },
@@ -47,6 +49,12 @@ const Header = ({ data }) => {
         </Section>
     );
 };
+
+const Summary = ({ data, labels }) => (
+    <Section title={labels.summary}>
+        <Text style={{ fontSize: 10.5, lineHeight: 1.6, color: '#444' }}>{data.summary}</Text>
+    </Section>
+);
 
 const Education = ({ data, labels }) => (
     <Section title={labels.education}>
@@ -195,11 +203,7 @@ const Resume = ({ data, labels }) => {
             <Page size="A4" style={styles.page}>
                 <Header data={contact} />
 
-                {summary?.summary && (
-                    <Section title={labels.summary}>
-                        <Text style={{ fontSize: 10 }}>{summary?.summary}</Text>
-                    </Section>
-                )}
+                {summary?.summary && <Summary data={summary} labels={labels} />}
 
                 {education.length > 0 && <Education data={education} labels={labels} />}
                 {experience.length > 0 && <Experience data={experience} labels={labels} />}
