@@ -38,7 +38,7 @@ const Header = ({ data }) => {
                     .map(({ value, name, icon }) => (
                         <View key={name} style={styles.header__link_item}>
                             {icon && <Icon name={icon} />}
-                            <Link src={value} style={{ color: '#555' }}>
+                            <Link src={value} style={{ color: '#555', textDecoration: 'none' }}>
                                 {name}
                             </Link>
                         </View>

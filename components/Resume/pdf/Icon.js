@@ -14,7 +14,7 @@ const Icon = ({ name, size = 11, color = '#555' }) => {
   if (!d) return null;
 
   return (
-    <Svg width={size} height={size} viewBox="0 0 16 16">
+    <Svg width={size} height={size} viewBox="0 0 16 16" style={{ marginTop: 1 }}>
       {d.split(' M').map((p, i) => (
         <Path key={i} d={i === 0 ? p : 'M' + p} fill={color} />
       ))}
