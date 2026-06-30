@@ -10,13 +10,8 @@ const Section = ({ title, style, children }) => {
 
         section_title_underline: {
             height: 1,
-            margin: '2px 0px 4px 0px',
+            margin: '2px 0px 6px 0px',
             backgroundColor: '#888',
-        },
-        section_end: {
-            height: 2,
-            margin: '10px 0px',
-            backgroundColor: '#eee',
         },
     });
 
@@ -30,8 +25,6 @@ const Section = ({ title, style, children }) => {
             )}
 
             {children}
-
-            <View style={styles.section_end}></View>
         </View>
     );
 };
