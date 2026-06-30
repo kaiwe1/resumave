@@ -1,5 +1,6 @@
 import { StyleSheet } from '@react-pdf/renderer';
 
+// 全局样式表
 const styles = StyleSheet.create({
     page: {
         backgroundColor: '#ffffff',
@@ -24,10 +25,17 @@ const styles = StyleSheet.create({
         fontSize: 11,
         display: 'flex',
         flexDirection: 'row',
+        flexWrap: 'wrap',
         justifyContent: 'center',
         gap: 14,
         marginTop: 6,
         marginBottom: 4,
+    },
+    header__link_item: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 3,
     },
 
     title_wrapper: {

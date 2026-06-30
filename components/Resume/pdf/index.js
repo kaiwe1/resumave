@@ -3,6 +3,7 @@
 import { Page, Text, View, Document, Link, Font } from '@react-pdf/renderer';
 import Section from './Section';
 import ListItem from './ListItem';
+import Icon from './Icon';
 import styles from '../Styles';
 import formatDate from '@/utils/formatDate';
 
@@ -17,46 +18,30 @@ Font.register({
 
 const Header = ({ data }) => {
     const contactLinks = [
-        {
-            name: data['phone'],
-            value: data['phone'],
-        },
-        {
-            name: data['email'],
-            value: `mailto:${data['email']}`,
-        },
-        {
-            name: 'LinkedIn',
-            value: data['linkedin'],
-        },
-        {
-            name: 'Github',
-            value: data['github'],
-        },
-        {
-            name: 'Blogs',
-            value: data['blogs'],
-        },
-        {
-            name: 'Twitter',
-            value: data['twitter'],
-        },
-        {
-            name: 'Portfolio',
-            value: data['portfolio'],
-        },
+        { name: data['phone'], value: data['phone'], icon: 'phone' },
+        { name: data['email'], value: `mailto:${data['email']}`, icon: 'email' },
+        { name: 'LinkedIn', value: data['linkedin'], icon: 'linkedin' },
+        { name: 'Github', value: data['github'], icon: 'github' },
+        { name: 'Blogs', value: data['blogs'], icon: 'link' },
+        { name: 'Twitter', value: data['twitter'], icon: 'twitter' },
+        { name: 'Portfolio', value: data['portfolio'], icon: 'link' },
     ];
 
     return (
         <Section>
-            <Text style={styles.header__name}>{data.name}</Text>
+            <View style={styles.header}>
+                <Text style={styles.header__name}>{data.name}</Text>
+            </View>
             <View style={styles.header__links}>
                 {contactLinks
                     .filter(obj => obj.value)
-                    .map(({ value, name }) => (
-                        <Link key={name} src={value} style={{ color: '#555' }}>
-                            {name}
-                        </Link>
+                    .map(({ value, name, icon }) => (
+                        <View key={name} style={styles.header__link_item}>
+                            {icon && <Icon name={icon} />}
+                            <Link src={value} style={{ color: '#555' }}>
+                                {name}
+                            </Link>
+                        </View>
                     ))}
             </View>
         </Section>
