@@ -1,7 +1,7 @@
 'use client';
 
 import { useDispatch } from 'react-redux';
-import Input from '../UI/Input';
+import Input from '../ui/Input';
 import { useSelector } from 'react-redux';
 import { updateResumeValue } from '@/store/slices/resumeSlice';
 import ResumeFields from '@/config/ResumeFields';
