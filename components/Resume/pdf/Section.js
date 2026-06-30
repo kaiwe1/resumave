@@ -2,6 +2,9 @@ import { StyleSheet, Text, View } from '@react-pdf/renderer';
 
 const Section = ({ title, style, children }) => {
     const styles = StyleSheet.create({
+        wrapper: {
+            marginBottom: 12,
+        },
         section_title: {
             textTransform: 'uppercase',
             color: '#333',
@@ -16,7 +19,7 @@ const Section = ({ title, style, children }) => {
     });
 
     return (
-        <View>
+        <View style={styles.wrapper}>
             {title && (
                 <>
                     <Text style={styles.section_title}>{title}</Text>
