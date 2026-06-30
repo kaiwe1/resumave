@@ -21,6 +21,7 @@ const Header = () => {
                 onClick={toggleLanguage}
                 className="cursor-pointer rounded-md bg-gray-700 px-3 py-1.5 text-sm hover:bg-gray-600"
                 title={language === 'en' ? 'Switch to Chinese' : '切换到英文'}
+                suppressHydrationWarning
             >
                 {language === 'en' ? 'EN' : '中'}
             </button>
